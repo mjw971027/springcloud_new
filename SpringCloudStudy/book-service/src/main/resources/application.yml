@@ -3,6 +3,21 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://cloudstudy.mysql.cn-chengdu.rds.aliyuncs.com:3306/cloudstudy
-    username: test
+    url: jdbc:mysql://localhost:3306/mjwsql?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
     password: 123456
+  application:
+    name: book-service
+  cloud:
+    nacos:
+      discovery:
+        # 配置Nacos注册中心地址
+        server-addr: localhost:8848
+        namespace: c60d3a7c-294e-4c2d-bf39-8001aa4b7d71
+      loadbalancer:
+        nacos:
+          enabled: true
+    sentinel:
+      transport:
+        # 添加监控页面地址即可
+        dashboard: localhost:8858
